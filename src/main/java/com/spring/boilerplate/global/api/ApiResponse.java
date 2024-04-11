@@ -1,5 +1,6 @@
 package com.spring.boilerplate.global.api;
 
+import com.spring.boilerplate.global.api.code.ErrorCode;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
