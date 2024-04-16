@@ -1,6 +1,5 @@
 package com.spring.boilerplate.global.api;
 
-import com.spring.boilerplate.global.api.code.ErrorCode;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +19,7 @@ public class ApiResponse<T> {
     private static final String FAIL_STATUS = "fail";
     private static final int SUCCESS_STATUS_CODE = 200;
     private static final int FAIL_STATUS_CODE = 400;
-    private String status;          // 응답 성공 실패 여부
+    private String status;          // 응답 성공, 실패 여부
     private Integer statusCode;     // Http Status
     private T value;                // 응답 데이터
 
