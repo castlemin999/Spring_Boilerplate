@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property name="PATTERN" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}][%highlight(%-5level)] %cyan([%logger.%method:line%line]) - %msg%n"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+<!--        <filter class="com.spring.boilerplate.global.filter.LogbackFilter"/>-->
+        <encoder>
+            <pattern>${PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Logger settings -->
+    <springProfile name="default,local,dev,test,stage">
+        <root level="INFO">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+
+        <logger name="com.zaxxer.hikari" level="ERROR"/>
+        <logger name="javax.sql.DataSource" level="OFF"/>
+        <logger name="jdbc.audit" level="OFF"/>
+        <logger name="jdbc.resultset" level="OFF"/>
+        <logger name="jdbc.resultsettable" level="ERROR"/>
+        <logger name="jdbc.sqlonly" level="OFF"/>
+        <logger name="jdbc.sqltiming" level="INFO"/>
+        <logger name="jdbc.connection" level="OFF"/>
+    </springProfile>
+
+    <springProfile name="prod">
+        <root level="WARN">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+
+        <logger name="com.zaxxer.hikari" level="ERROR"/>
+        <logger name="javax.sql.DataSource" level="OFF"/>
+        <logger name="jdbc.audit" level="OFF"/>
+        <logger name="jdbc.resultset" level="OFF"/>
+        <logger name="jdbc.resultsettable" level="ERROR"/>
+        <logger name="jdbc.sqlonly" level="OFF"/>
+        <logger name="jdbc.sqltiming" level="ERROR"/>
+        <logger name="jdbc.connection" level="OFF"/>
+    </springProfile>
+</configuration>
