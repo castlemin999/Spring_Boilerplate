@@ -1,9 +1,7 @@
 package com.spring.boilerplate.global.api;
 
-import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 /**
  * [API Response]
@@ -13,13 +11,12 @@ import lombok.NoArgsConstructor;
  * @version 1.0
  */
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class ErrorResponse {
+public class ErrorData {
     private String errorCode;
     private String errorMessage;
 
     @Builder
-    public ErrorResponse(String errorCode, String errorMessage) {
+    public ErrorData(String errorCode, String errorMessage) {
         this.errorCode = errorCode;
         this.errorMessage = errorMessage;
     }
